@@ -1,6 +1,7 @@
 
 import React from "react";
 import Tour from "./Tour" ;
+import {Container} from "react-bootstrap";
 
 const Tours = (props) => {
 
@@ -9,10 +10,10 @@ const Tours = (props) => {
     return (
         tours.map((tour)=>{
             return(
-                <div>
+                <Container>
                     <Tour key={tour.id}  tour={tour} removeTours={props.removeTours}/>
 
-                </div>
+                </Container>
 
             )
 

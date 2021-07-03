@@ -1,6 +1,10 @@
 import React, {useEffect, useState} from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Tours from "./Tours";
 import Loading from "./Loading";
+import "./index.css" ;
+import NoToursLeft from "./NoToursLeft" ;
+
 
 
 const url = "https://course-api.com/react-tours-project";
@@ -44,10 +48,7 @@ if (loading) {
 }
 if (tours.length===0) {
   return  (
-      <div>
-        <h2> No Tours Left</h2>
-        <button onClick={()=>fetchTours()}> show all tours </button>
-      </div>
+      <NoToursLeft handleClick={fetchTours}/>
   )
 }
 

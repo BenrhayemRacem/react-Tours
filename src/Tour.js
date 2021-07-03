@@ -1,4 +1,6 @@
 import React, {useState} from "react";
+import {Button, Col,  Image, Row} from "react-bootstrap";
+
 
 const Tour =(props) => {
     const {id,name , info,image , price} = props.tour ;
@@ -13,26 +15,39 @@ const Tour =(props) => {
     }
 
     return (
-        <article >
+
+            <article >
             <div>
-                <h1>{name}</h1>
+                <h2>{name}</h2>
             </div>
-            <img src={image} alt={name}/>
-            <div>
+
+            <Image src={image}  thumbnail />
+
+                    <Row >
+            <Col xs={9}>
                 <p>
-                    {handleReadMore()} <button onClick={()=>setReadMore(!readMore)}>
+                    {handleReadMore()} <Button  variant="outline-info" onClick={()=>setReadMore(!readMore)}>
                     {readMore ? 'show less' : 'read more'}
-                </button>
+                </Button>
                 </p>
 
-            </div>
-            <div>
-                {price}
-            </div>
+            </Col>
+            <Col className="d-flex justify-content-center" >
+               <h3> ${price} </h3>
+            </Col>
+                    </Row>
+                    <Row >
+                        <Col xs={11}>
+                    <Button className=" btn-danger btn-block" onClick={()=>removeTours(id)}> not interested</Button>
+                        </Col>
+                    </Row>
 
-            <button onClick={()=>removeTours(id)}> not interested</button>
 
-        </article>
+
+            </article>
+
+
+
 
 
     )
